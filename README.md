@@ -49,7 +49,7 @@ A **4:1 multiplexer** selects one of four data inputs (i0..i3) and routes it to 
    - Run *Synthesis* → inspect warnings/errors.
    - Run *Implementation* → review timing and utilization.
 
-7. **Generate Bitstream & Program**
+5. **Generate Bitstream & Program**
    - Generate Bitstream.
    - Open *Hardware Manager* → connect to target → Program device with `.bit` file.
    - Verify outputs on LEDs/scope.
