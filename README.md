@@ -8,11 +8,9 @@ To design, simulate, synthesize, and implement a 4:1 Multiplexer using Verilog H
 ## Apparatus Required
 | S.No | Apparatus / Software | Specification / Description |
 |------|----------------------|-----------------------------|
-| 1 | FPGA Board | Xilinx Spartan-7 development board (modify pin names for your board) |
-| 2 | Software | Xilinx Vivado Design Suite 2023.1 or later |
+| 1 | FPGA Board | Xilinx Spartan-7 development board  |
+| 2 | Software | Xilinx Vivado Design Suite  |
 | 3 | Cable | USB Programming Cable (JTAG/USB-JTAG) |
-| 4 | Power Supply | As required by the development board |
-| 5 | Accessories | Breadboard/wires (optional), LEDs and switches present on board used for I/O |
 
 ---
 
@@ -61,10 +59,10 @@ A **4:1 multiplexer** selects one of four data inputs (D0..D3) and routes it to 
 ```verilog
 `timescale 1ns / 1ps
 module mux4to1 (
-    input  wire d0,
-    input  wire d1,
-    input  wire d2,
-    input  wire d3,
+    input  wire i0,
+    input  wire i1,
+    input  wire i2,
+    input  wire i3,
     input  wire [1:0] sel,
     output wire y
 );
@@ -77,12 +75,17 @@ module mux4to1 (
 ```
 ## Constraint file for Seven-Segment Display
 ```
-
+set_property -dict {PACKAGE_PIN V2 IOSTANDARD LVCMOS33} [get_ports {I[0]}]
+set_property -dict {PACKAGE_PIN U2 IOSTANDARD LVCMOS33} [get_ports {I[1]}]
+set_property -dict {PACKAGE_PIN U1 IOSTANDARD LVCMOS33} [get_ports {I[2]}]
+set_property -dict {PACKAGE_PIN T2 IOSTANDARD LVCMOS33} [get_ports {I[3]}]
+set_property -dict {PACKAGE_PIN K2 IOSTANDARD LVCMOS33} [get_ports {sel[0]}]
+set_property -dict {PACKAGE_PIN K1 IOSTANDARD LVCMOS33} [get_ports {sel[1]}]
+set_property -dict {PACKAGE_PIN G1 IOSTANDARD LVCMOS33} [get_ports {y}]
 ```
 ## FPGA Implementation Output
 
-
-
+![Mux](https://github.com/user-attachments/assets/40586d2d-e669-4d67-9be1-f481b4ff9cf2)
 
 ---
 
